@@ -18,7 +18,10 @@ public class Message {
     private Long messagePk;
 
     @ManyToOne
-    @JoinColumn(name = "chat_id", nullable = false)
+    @JoinColumns({
+            @JoinColumn(name = "room_id", referencedColumnName = "room_id"),
+            @JoinColumn(name = "user_pk", referencedColumnName = "user_pk")
+    })
     private Chatting chat;
 
     @ManyToOne

@@ -16,7 +16,10 @@ public class Directory {
     private Long directoryPk;
 
     @ManyToOne
-    @JoinColumn(name = "container_id", nullable = false)
+    @JoinColumns({
+            @JoinColumn(name = "container_pk", referencedColumnName = "container_pk"),
+            @JoinColumn(name = "user_pk", referencedColumnName = "user_pk")
+    })
     private Container container;
 
     @Column(name = "parent")
